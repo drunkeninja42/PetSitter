@@ -1,0 +1,12 @@
+
+<form action='' method='post'>
+
+    {% csrf_token %}
+    fnm: <input type='text' name='first_name'><br>
+    lnm: <input type='text' name='last_name'><br>
+    usm: <input type='text' name='username'><br>
+    pss: <input type='password' name='password'><br>
+    eml: <input type='email' name='email'><br>
+    babysitter: <input type="checkbox" name='babysitter'><br>
+    <button type='submit'>Submit</button>
+</form>

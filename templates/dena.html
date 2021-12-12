@@ -1,0 +1,10 @@
+<form action='' method="post">
+
+    {% csrf_token %}
+    name: <input type='text' name='name'><br>
+    breed: <input type='text' name='breed'><br>
+    nature: <input type='text' name='nature'><br>
+    desc: <input type='text' name='description'><br>
+    photo: <input type="file" name='photo'><br>
+    <button type='submit'>Submit</button>
+</form>
