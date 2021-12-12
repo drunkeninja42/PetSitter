@@ -20,3 +20,9 @@
 
 ## User verification
 ![verification](https://i.ibb.co/BT9rBRV/if-username-or-password-doesnot-exist.png)
+
+## Enter Dog details
+![dog details](https://i.ibb.co/kD94q4M/details-of-the-dog.png)
+
+## Enter hourly rate
+![Sitter details](https://i.ibb.co/kc8hgxC/applying-for-job.png)
