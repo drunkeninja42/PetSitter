@@ -1,0 +1,11 @@
+<h3 align = 'center'>For {{ Title }}</h3>
+{% for k, v in UserData.items %}
+    {{ v }}
+{% endfor %}
+<br>
+{% for k, v in JobListing.items %}
+    {% for m, n in v.items %}
+        {{ n }}
+    {% endfor %}
+    <br>
+{% endfor %}

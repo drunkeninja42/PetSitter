@@ -27,5 +27,7 @@ class SitterReq(models.Model):
     price = models.IntegerField()
     duration = models.IntegerField()
     
+    def __str__(self):
+        return self.usermodel.__str__()
 
 

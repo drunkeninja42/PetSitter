@@ -3,13 +3,13 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def home(request) :
-    return HttpResponse('website coming soon.........')
+    return render(request, 'index.html')
 
 urlpatterns = [
-    path('user/' , include('userManagement.urls')),
+    path('' , include('userManagement.urls')),
     path('admin/', admin.site.urls),
-    path('' , home)
 ]
 # urlpatterns = urlpatterns + static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)

@@ -1,5 +1,5 @@
 
-<form action='' method='post'>
+<form action='' method='post' align='center'>
 
     {% csrf_token %}
     fnm: <input type='text' name='first_name'><br>
@@ -7,6 +7,17 @@
     usm: <input type='text' name='username'><br>
     pss: <input type='password' name='password'><br>
     eml: <input type='email' name='email'><br>
-    babysitter: <input type="checkbox" name='babysitter'><br>
-    <button type='submit'>Submit</button>
+    babysitter: <input type='checkbox' name='babysitter'><br>
+    
+    <h2> For Babysitter (ONLY IF BABYSITTER) </h2>
+    price: <input type='number' name='price'><br>
+    duration: <input type='number' name='duration'><br>
+
+    <h2> For Seeker (ONLY IF SEEKER) </h2>
+    name: <input type='text' name='name'><br>
+    breed: <input type='text' name='breed'><br>
+    nature: <input type='text' name='nature'><br>
+    desc: <input type='text' name='description'><br>
+    photo: <input type="file" name='photo'><br>
+    <br><button type='submit'>Submit</button>
 </form>
