@@ -1,23 +1,93 @@
+{% load static %}
 
-<form action='' method='post' align='center'>
+<!DOCTYPE html>
+<html lang="en">
 
-    {% csrf_token %}
-    fnm: <input type='text' name='first_name'><br>
-    lnm: <input type='text' name='last_name'><br>
-    usm: <input type='text' name='username'><br>
-    pss: <input type='password' name='password'><br>
-    eml: <input type='email' name='email'><br>
-    babysitter: <input type='checkbox' name='babysitter'><br>
-    
-    <h2> For Babysitter (ONLY IF BABYSITTER) </h2>
-    price: <input type='number' name='price'><br>
-    duration: <input type='number' name='duration'><br>
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
 
-    <h2> For Seeker (ONLY IF SEEKER) </h2>
-    name: <input type='text' name='name'><br>
-    breed: <input type='text' name='breed'><br>
-    nature: <input type='text' name='nature'><br>
-    desc: <input type='text' name='description'><br>
-    photo: <input type="file" name='photo'><br>
-    <br><button type='submit'>Submit</button>
-</form>
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="user">
+        <header class="user__header">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+            <h1 class="user__title">Signup Form</h1>
+        </header>
+
+        <form class="form" action='' method='post'>
+            {% csrf_token %}
+            <div class="form__group">
+                <input type="text" name=first_name placeholder="First Name" class="form__input" />
+            </div>
+
+            <div class="form__group">
+                <input type="text" name=last_name placeholder="Last Name" class="form__input" />
+            </div>
+
+            <div class="form__group">
+                <input type="email" name=email placeholder="Email" class="form__input" />
+            </div>
+
+            <div class="form__group">
+                <input type="text" name=username placeholder="Username" class="form__input" />
+            </div>
+
+            <div class="form__group">
+                <input type="password" name=password placeholder="Password" class="form__input" />
+            </div>
+
+            <button class="btn" type="button">Register</button>
+    </div>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <custom_form>
+                <h1>Sitter Details</h1>
+                <input type="text" name=price placeholder="Price" />
+                <input type="text" name=duration placeholder="Duration(hrs)" />
+                <button>Sign Up</button>
+            </custom_form>
+        </div>
+        <div class="form-container sign-in-container">
+            <custom_form>
+                <h1>Doggy Details</h1>
+                <input type="text" name=name placeholder="Name" />
+                <input type="text" name=breed placeholder="Breed" />
+                <input type="text" name=nature placeholder="Nature" />
+                <input type="text" name=description placeholder="Description" />
+                <input type="file" name=photo placeholder="Photo" />
+                <button>Sign Up</button>
+            </custom_form>
+        </div>
+        </form>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Seeker?</h1>
+                    <p>Want to find a pet sitter for your dog? Click here</p>
+                    <button class="ghost" id="signIn">Seeker</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Doggy Sitter?</h1>
+                    <p>Want to signup as a Doggy Sitter? Click here</p>
+                    <button class="ghost" id="signUp">Doggy Sitter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- partial -->
+    <script src="{% static 'signup.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,7 +1,37 @@
-<form action='' method='post' align='center'> 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-    {% csrf_token %}
-    username: <input type='text' name='username'><br>
-    password: <input type='password' name='password'><br>
-    <button type='submit'>Submit</button>
-</form>
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+
+</head>
+
+<body>
+    <div class="form" id="form">
+        <form action='' method='post'>
+            {% csrf_token %}
+            <div class="field email">
+                <div class="icon"></div>
+                <input class="input" id="email" name="username" type="text" placeholder="Username" autocomplete="off" />
+            </div>
+            <div class="field password">
+                <div class="icon"></div>
+                <input class="input" id="password" name="password" type="password" placeholder="Password" />
+            </div>
+            <button class="button" type="submit" id="submit">LOGIN
+                <div class="side-top-bottom"></div>
+                <div class="side-left-right"></div>
+            </button>
+        </form>
+    </div>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <script src="{% static 'login.js' %}"></script>
+
+</body>
+
+</html>

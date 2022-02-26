@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from .models import UserModel, DoggyDetails, SitterReq
-from django_google_maps import fields as map_fields
 from django.http import HttpResponse
-from .mixins import Directions
 from django.conf import settings
 
 def index(request):
@@ -24,19 +22,21 @@ def get_data(username):
     if user.babysitter:
         for seeker in UserModel.objects.filter(babysitter=False):
             for dog in DoggyDetails.objects.filter(usermodel__email=seeker.email):
-                JobListing[dog.name] = {'name' : dog.name, 
-                                        'breed' : dog.breed, 
-                                        'nature' : dog.nature, 
-                                        'photo' : dog.photo 
+                JobListing[dog.name] = {
+                    'name' : dog.name, 
+                    'breed' : dog.breed, 
+                    'nature' : dog.nature, 
+                    'photo' : dog.photo 
                 }
         Title = 'Babysitter'
 
     else:
         for sitter in UserModel.objects.filter(babysitter=True):
             for human in SitterReq.objects.filter(usermodel__email=sitter.email):
-                JobListing[sitter.__str__] = {'name' : sitter.__str__, 
-                                'price' : human.price, 
-                                'duration' : human.duration 
+                JobListing[sitter.__str__] = {
+                    'name' : sitter.__str__, 
+                    'price' : human.price, 
+                    'duration' : human.duration 
                 }
         Title = 'Seeker'
     
@@ -45,7 +45,6 @@ def get_data(username):
 
 def signup(request):
     if request.method == "POST" : 
-        print(request.POST['first_name'])
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         username = request.POST['username']
@@ -96,7 +95,7 @@ def login(request):
 
         if user.babysitter:
             doggyDetails = get_data(username)
-            return render(request , 'doggy_page.html', doggyDetails)
+            return render(request , 'doggyPage.html', doggyDetails)
         else:
             sitterDetails = get_data(username)
             return render(request , 'doggy_page.html', sitterDetails)
@@ -104,33 +103,3 @@ def login(request):
     else:
         return render(request , 'login.html')
 
-
-def route(request):
-	params = {"google_api_key": settings.GOOGLE_API_KEY}
-	return render(request, 'route.html', params)
-
-def map(request):
-
-	lat_a = request.GET.get("lat_a")
-	long_a = request.GET.get("long_a")
-	lat_b = request.GET.get("lat_b")
-	long_b = request.GET.get("long_b")
-	directions = Directions(
-		lat_a= lat_a,
-		long_a=long_a,
-		lat_b = lat_b,
-		long_b=long_b
-		)
-
-	context = {
-	"google_api_key": settings.GOOGLE_API_KEY,
-	"lat_a": lat_a,
-	"long_a": long_a,
-	"lat_b": lat_b,
-	"long_b": long_b,
-	"origin": f'{lat_a}, {long_a}',
-	"destination": f'{lat_b}, {long_b}',
-	"directions": directions,
-
-	}
-	return render(request, 'map.html', context)
