@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 class UserModel(models.Model):
     first_name = models.CharField(max_length=200)
@@ -22,10 +23,13 @@ class DoggyDetails(models.Model):
     def __str__(self):
         return self.name
 
-class SitterReq(models.Model):
+class SitterDetails(models.Model):
     usermodel = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     price = models.IntegerField()
-    duration = models.IntegerField()
+    location = models.CharField(max_length=200)
+    intro = models.CharField(max_length=100)
+    description = models.TextField()
+    photo = models.ImageField(upload_to = 'pics')
     
     def __str__(self):
         return self.usermodel.__str__()

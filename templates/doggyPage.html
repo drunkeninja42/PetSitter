@@ -105,27 +105,26 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Featured Jobs</h2>
+              <h2>Find a Pet Sitter</h2>
               <a href="jobs.html">view more <i class="fa fa-angle-right"></i></a>
             </div>
           </div>
-          
-          {% for k, Doggy in JobListing.items %}
+          {% for k, Sitter in JobListing.items %}
           <div class="col-md-4">
             <div class="product-item">
-              <a href="job-details.html"><img src="{{ Doggy.photo.url }}" alt="Doggy"></a>
+              <a href="job-details.html"><img src="{{ Sitter.photo.url }}" alt="Doggy" ></a>
               <div class="down-content">
-                <a href="job-details.html"><h4>{{ Doggy.name }}</h4></a>
+                <a href="job-details.html"><h4>{{ Sitter.name }}</h4></a>
 
-                <h6>$60 / hr</h6>
+                <h6>{{ Sitter.price }} / hr</h6>
 
-                <h4><small><i class="fa fa-briefcase"></i> <b>Breed:</b> {{ Doggy.breed }} <br> 
-                  <strong><i class="fa fa-building"></i> Nature: </strong> {{ Doggy.nature }} </small></h4>
+                <h4><small><i class="fa fa-briefcase"></i> <b>Location:</b> {{ Sitter.location }} <br> 
+                  <strong><i class="fa fa-building"></i> intro: </strong> {{ Sitter.intro }} </small></h4>
 
                 <small>
-                     <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                     <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                     <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+                    <strong title="Detail 1"><i class="fa fa-calendar"></i> *********</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <strong title="Detail 2"><i class="fa fa-file"></i> *********</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <strong title="Detail 3"><i class="fa fa-map-marker"></i> *********</strong>
                 </small>
               </div>
             </div>
@@ -140,16 +139,16 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>About Us</h2>
+              <h2>हमारे बारे में :- </h2>
             </div>
           </div>
           <div class="col-md-6">
             <div class="left-content">
               <p>Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit. Explicabo, esse consequatur alias repellat in excepturi inventore ad <a href="#">asperiores</a> tempora ipsa. Accusantium tenetur voluptate labore aperiam molestiae rerum excepturi minus in pariatur praesentium, corporis, aliquid dicta.</p>
               <ul class="featured-list">
-                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                <li><a href="#">Consectetur an adipisicing elit</a></li>
-                <li><a href="#">It aquecorporis nulla aspernatur</a></li>
+                <li><a href="#">पशुउ पालन </a></li>
+                <li><a href="#">हमारे यह कुट्टू जन्म कारवाना, उनको पालने की सारी विद्या बती जाती हैं</a></li>
+                <li><a href="#">शादी या पार्टी के ऑर्डर बुक करवाये जाते हैं</a></li>
                 <li><a href="#">Corporis, omnis doloremque</a></li>
               </ul>
               <a href="about-us.html" class="filled-button">Read More</a>
@@ -180,9 +179,9 @@
               <a href="#" class="services-item-image"><img src="{% static 'assets/images/blog-1-370x270.jpg' %}" class="img-fluid" alt=""></a>
 
               <div class="down-content">
-                <h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</a></h4>
+                <h4><a href="https://petsitters.org/news/596610/">News 1</a></h4>
 
-                <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
+                <p style="margin: 0;"> NAPPS Headquarters &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
               </div>
             </div>
           </div>
@@ -191,9 +190,9 @@
               <a href="#" class="services-item-image"><img src="{% static 'assets/images/blog-2-370x270.jpg' %}" class="img-fluid" alt=""></a>
 
               <div class="down-content">
-                <h4><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h4>
+                <h4><a href="https://petsitters.org/news/591158/">News 2</a></h4>
 
-                <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
+                <p style="margin: 0;">  Cathleen Delaney &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
               </div>
             </div>
           </div>
@@ -202,7 +201,7 @@
               <a href="#" class="services-item-image"><img src="{% static 'assets/images/blog-3-370x270.jpg' %}" class="img-fluid" alt=""></a>
 
               <div class="down-content">
-                <h4><a href="#">Aperiam modi voluptatum fuga officiis cumque</a></h4>
+                <h4><a href="https://petsitters.org/events/EventDetails.aspx?id=1615177">News 3</a></h4>
 
                 <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
               </div>
@@ -230,7 +229,7 @@
                 </div>
                 <div class="down-content">
                   <h4>John Doe</h4>
-                  <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                  <p class="n-m"><em>"https://petsitters.org/news/596610/"</em></p>
                 </div>
               </div>
               
