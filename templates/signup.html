@@ -43,6 +43,9 @@
             <div class="form__group">
                 <input type="password" name=password placeholder="Password" class="form__input" />
             </div>
+            <div class="form__group">
+                <input type="checkbox" name=dogsi placeholder="Password" class="form__input" />
+            </div>
 
             <button class="btn" type="button">Register</button>
     </div>
@@ -50,15 +53,19 @@
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <custom_form>
-                <h1>Sitter Details</h1>
+                <h1>Pet Sitter Details</h1>
+                <
                 <input type="text" name=price placeholder="Price" />
-                <input type="text" name=duration placeholder="Duration(hrs)" />
+                <input type="text" name=intro placeholder="Intro" />
+                <input type="text" name=description placeholder="Description" />
+                <input type="text" name=location placeholder="Location" />
+                <input type="file" name=photo placeholder="Photo" />
                 <button>Sign Up</button>
             </custom_form>
         </div>
         <div class="form-container sign-in-container">
             <custom_form>
-                <h1>Doggy Details</h1>
+                <h1>Pet Owner Details</h1>
                 <input type="text" name=name placeholder="Name" />
                 <input type="text" name=breed placeholder="Breed" />
                 <input type="text" name=nature placeholder="Nature" />
@@ -71,13 +78,13 @@
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1>Seeker?</h1>
-                    <p>Want to find a pet sitter for your dog? Click here</p>
+                    <h1>Pet Owner?</h1>
+                    <p>Want to find a pet sitter for your pet? Click here</p>
                     <button class="ghost" id="signIn">Seeker</button>
                 </div>
                 <div class="overlay-panel overlay-right">
-                    <h1>Doggy Sitter?</h1>
-                    <p>Want to signup as a Doggy Sitter? Click here</p>
+                    <h1>Pet Sitter?</h1>
+                    <p>Want to signup as a Pet Sitter? Click here</p>
                     <button class="ghost" id="signUp">Doggy Sitter</button>
                 </div>
             </div>

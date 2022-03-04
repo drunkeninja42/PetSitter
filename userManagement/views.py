@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from .models import UserModel, DoggyDetails, SitterReq
+from .models import UserModel, DoggyDetails, SitterDetails
 from django.http import HttpResponse
 from django.conf import settings
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'home2.html')
 
 
 def get_data(username):
@@ -28,17 +28,19 @@ def get_data(username):
                     'nature' : dog.nature, 
                     'photo' : dog.photo 
                 }
-        Title = 'Babysitter'
+        Title = 'Dog Sitter'
 
     else:
         for sitter in UserModel.objects.filter(babysitter=True):
-            for human in SitterReq.objects.filter(usermodel__email=sitter.email):
+            for details in SitterDetails.objects.filter(usermodel__email=sitter.email):
                 JobListing[sitter.__str__] = {
                     'name' : sitter.__str__, 
-                    'price' : human.price, 
-                    'duration' : human.duration 
+                    'location' : sitter.location, 
+                    'intro' : sitter.intro,
+                    'description' : sitter.description,
+                    'photo' : sitter.photo 
                 }
-        Title = 'Seeker'
+        Title = 'Dog Owner'
     
     return {'UserData':UserData, 'JobListing':JobListing, 'Title':Title}
 
@@ -59,10 +61,13 @@ def signup(request):
 
         if user.babysitter:
             price = request.POST['price']
-            duration = request.POST['duration']
+            intro = request.POST['intro']
+            description = request.POST['description']
+            location = request.POST['location']
+            photo = request.POST['photo']
             user.save()
-            req = SitterReq(usermodel=user, price=price , duration=duration)
-            req.save()
+            sitter = SitterDetails(usermodel=user, price=price , intro=intro, description=description, location=location, photo=photo)
+            sitter.save()
 
             sitterDetails = get_data(user.username)
             return render(request , 'doggy_page.html', sitterDetails)
@@ -78,7 +83,7 @@ def signup(request):
             dog.save()
 
             doggyDetails = get_data(user.username)
-            return render(request , 'doggy_page.html', doggyDetails)
+            return render(request , 'doggyPage.html', doggyDetails)
 
     else :
         return render(request, 'signup.html')
@@ -94,11 +99,9 @@ def login(request):
             return HttpResponse('username or password does not exists.......')
 
         if user.babysitter:
-            doggyDetails = get_data(username)
-            return render(request , 'doggyPage.html', doggyDetails)
+            return render(request , 'doggy_page.html', get_data(username))
         else:
-            sitterDetails = get_data(username)
-            return render(request , 'doggy_page.html', sitterDetails)
+            return render(request , 'doggyPage.html', get_data(username))
         
     else:
         return render(request , 'login.html')
